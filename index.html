@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#240b12">
+    <meta name="description" content="The portfolio of Anees, Senior DevOps Engineer.">
+    <title>Anees | Senior DevOps Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: "Manrope", "Segoe UI", sans-serif;
+            background: #240b12;
+            color: #f4f5fb;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            background:
+                radial-gradient(ellipse at 78% 18%, rgba(188, 45, 63, 0.34), transparent 38rem),
+                radial-gradient(ellipse at 15% 85%, rgba(255, 111, 91, 0.16), transparent 34rem),
+                #240b12;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            position: relative;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            isolation: isolate;
+        }
+
+        .page-shell::before {
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.16) 0.7px, transparent 0.7px);
+            background-size: 24px 24px;
+            content: "";
+            mask-image: linear-gradient(to bottom, black, transparent 82%);
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        .site-header,
+        main,
+        .site-footer {
+            width: min(1120px, calc(100% - 48px));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            display: flex;
+            min-height: 88px;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            display: grid;
+            width: 34px;
+            height: 34px;
+            place-items: center;
+            border: 1px solid rgba(255, 138, 122, 0.34);
+            border-radius: 11px;
+            background: rgba(255, 138, 122, 0.12);
+            color: #ff9a89;
+            font-family: "DM Mono", monospace;
+            font-size: 0.85rem;
+        }
+
+        .header-note {
+            color: #9da3b5;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        main {
+            display: grid;
+            flex: 1;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            align-items: center;
+            gap: clamp(48px, 8vw, 112px);
+            padding-block: 86px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 26px;
+            color: #c6a4a8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff8a7a;
+            box-shadow: 0 0 15px rgba(255, 138, 122, 0.8);
+        }
+
+        h1 {
+            max-width: 680px;
+            margin: 0;
+            font-size: clamp(3.6rem, 8.5vw, 7rem);
+            font-weight: 800;
+            letter-spacing: -0.085em;
+            line-height: 0.98;
+        }
+
+        h1 span {
+            display: block;
+            background: linear-gradient(100deg, #ff8a7a 4%, #ffc28a 90%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .role {
+            margin: 25px 0 0;
+            color: #d8dbea;
+            font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+            font-weight: 600;
+            letter-spacing: -0.035em;
+        }
+
+        .intro {
+            max-width: 490px;
+            margin: 17px 0 0;
+            color: #9da3b5;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 18px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e7e9f2;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .hero-link:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 138, 122, 0.6);
+            background: rgba(255, 138, 122, 0.1);
+        }
+
+        .hero-link:focus-visible {
+            outline: 2px solid #ff8a7a;
+            outline-offset: 4px;
+        }
+
+        .hero-link.primary {
+            border-color: #ff8a7a;
+            background: #ff8a7a;
+            color: #2b1016;
+        }
+
+        .hero-link.primary:hover {
+            background: #ffa99b;
+        }
+
+        .focus-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 26px;
+        }
+
+        .focus-tag {
+            padding: 7px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            color: #d2b9bc;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .pipeline-card {
+            position: relative;
+            padding: 26px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 22px;
+            background: linear-gradient(145deg, rgba(69, 34, 44, 0.94), rgba(39, 20, 28, 0.94));
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+        }
+
+        .pipeline-card::after {
+            position: absolute;
+            top: -110px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 138, 122, 0.1);
+            content: "";
+            filter: blur(45px);
+            pointer-events: none;
+        }
+
+        .card-topline,
+        .pipeline-step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-topline {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 21px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c6cada;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .window-dots i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #626a7e;
+        }
+
+        .window-dots i:first-child {
+            background: #ff8c80;
+        }
+
+        .window-dots i:nth-child(2) {
+            background: #ffd36c;
+        }
+
+        .window-dots i:last-child {
+            background: #ff8a7a;
+        }
+
+        .pipeline {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 12px;
+            padding-top: 23px;
+        }
+
+        .pipeline-step {
+            min-height: 62px;
+            gap: 14px;
+            padding: 11px 13px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 13px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .step-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #e7e9f2;
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .step-icon {
+            display: grid;
+            width: 34px;
+            height: 34px;
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 10px;
+            background: rgba(255, 194, 138, 0.12);
+            color: #ffc28a;
+            font-family: "DM Mono", monospace;
+            font-size: 0.78rem;
+        }
+
+        .pipeline-step:first-child .step-icon {
+            background: rgba(255, 138, 122, 0.12);
+            color: #ff9a89;
+        }
+
+        .step-state {
+            color: #6defd3;
+            font-family: "DM Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.04em;
+        }
+
+        .step-state.pending {
+            color: #a9a6d8;
+        }
+
+        .pipeline-line {
+            width: 1px;
+            height: 10px;
+            margin: -12px 0 -12px 29px;
+            background: linear-gradient(#ff8a7a, #ffc28a);
+            opacity: 0.6;
+        }
+
+        .card-caption {
+            position: relative;
+            z-index: 1;
+            margin: 20px 0 0;
+            color: #b99da3;
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .site-footer {
+            display: flex;
+            min-height: 72px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            color: #858da2;
+            font-size: 0.75rem;
+        }
+
+        .load-time {
+            color: #dbc4c7;
+            font-family: "DM Mono", monospace;
+        }
+
+        @media (max-width: 760px) {
+            .site-header,
+            main,
+            .site-footer {
+                width: min(100% - 36px, 560px);
+            }
+
+            .site-header {
+                min-height: 72px;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+                gap: 54px;
+                padding-block: 72px;
+            }
+
+            .pipeline-card {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .header-note {
+                font-size: 0.68rem;
+            }
+
+            .site-footer {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                padding-block: 18px;
+            }
+
+            .pipeline-card {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#" aria-label="Anees portfolio home">
+                <span class="brand-mark" aria-hidden="true">a.</span>
+                <span>ANEES<span aria-hidden="true">.</span></span>
+            </a>
+            <span class="header-note">PORTFOLIO / 2026</span>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="hero-title">
+                <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Reliable by design</p>
+                <h1 id="hero-title">Build.<span>Ship.</span>Scale.</h1>
+                <p class="role">Anees <span aria-hidden="true">/</span> Senior DevOps Engineer</p>
+                <p class="intro">Creating smoother paths from code to production through automation, thoughtful infrastructure, and dependable delivery.</p>
+                <div class="hero-links">
+                    <a class="hero-link primary" href="#delivery">Explore my approach <span aria-hidden="true">&nbsp;↓</span></a>
+                </div>
+                <div class="focus-tags" aria-label="Areas of focus">
+                    <span class="focus-tag">Automation</span>
+                    <span class="focus-tag">Delivery</span>
+                    <span class="focus-tag">Reliability</span>
+                </div>
+            </section>
+
+            <aside class="pipeline-card" id="delivery" aria-label="Illustration of a software delivery pipeline">
+                <div class="card-topline">
+                    <span>delivery-pipeline.yml</span>
+                    <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                </div>
+                <div class="pipeline">
+                    <div class="pipeline-step">
+                        <span class="step-info"><span class="step-icon" aria-hidden="true">&lt;/&gt;</span>Commit</span>
+                        <span class="step-state">✓ DONE</span>
+                    </div>
+                    <span class="pipeline-line" aria-hidden="true"></span>
+                    <div class="pipeline-step">
+                        <span class="step-info"><span class="step-icon" aria-hidden="true">✓</span>Build &amp; test</span>
+                        <span class="step-state">✓ PASS</span>
+                    </div>
+                    <span class="pipeline-line" aria-hidden="true"></span>
+                    <div class="pipeline-step">
+                        <span class="step-info"><span class="step-icon" aria-hidden="true">↗</span>Deploy</span>
+                        <span class="step-state pending">READY</span>
+                    </div>
+                </div>
+                <p class="card-caption">From first commit to confident release — a clearer route to production.</p>
+            </aside>
+        </main>
+
+        <footer class="site-footer">
+            <span>Made for reliable releases.</span>
+            <span>Page loaded <time class="load-time" id="load-time"></time></span>
+        </footer>
+    </div>
+
+    <script>
+        const loadTime = document.getElementById("load-time");
+        const loadedAt = new Date();
+        loadTime.dateTime = loadedAt.toISOString();
+        loadTime.textContent = loadedAt.toLocaleString();
+    </script>
+</body>
+</html>
