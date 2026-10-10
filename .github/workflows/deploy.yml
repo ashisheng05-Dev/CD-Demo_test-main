@@ -1,4 +1,4 @@
-name: Full CI/CD Pipeline for testing and verify the pipeline
+name: Full CI/CD Pipeline for testing and verify the pipeline_V2
 
 on:
   push:
